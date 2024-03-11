@@ -2,11 +2,14 @@ import { describe, it, expect } from "vitest"
 import { BirthdayGreetings } from "./birthdayGreetings.js"
 
 describe("BirthDayGreetings", () => {
-  it("displays Happy Birthday!", () => {
+  it("displays error when there is no birthday greetings to send", () => {
     const birthdayGreetings = new BirthdayGreetings()
 
-    const greetings: string = birthdayGreetings.sendGreetings()
+    try {
+      const greetings: string = birthdayGreetings.sendGreetings()
+    } catch (error) {
+      expect(error.message).toBe("no birthdays for today")
+    }
 
-    expect(greetings).toBe("Happy Birthday!")
   })
 })

@@ -1,7 +1,7 @@
 export class BirthdayGreetings {
   
   sendGreetings(): string {
-    return "Happy Birthday!"
+    throw Error('no birthdays for today')
   }
 
 }
