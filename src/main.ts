@@ -1,4 +1,5 @@
-import { BirthDayGreetingsEmail, Clock, Person, Response } from "./birthdayGreetings.js"
+import { BirthdayGreetings, Clock, Person } from "./BirthdayGreetings.js"
+import { RealEmailSender } from "./RealEmailSender.js"
 
 const people: Person[] = [
   {
@@ -9,7 +10,7 @@ const people: Person[] = [
   },
 ]
 
-const birthdayGreetingsViaEmail = new BirthDayGreetingsEmail(new Clock(), people)
+const birthdayGreetingsViaEmail = new BirthdayGreetings(new Clock(), people, new RealEmailSender())
 birthdayGreetingsViaEmail
   .sendGreetings()
   .then((response) => {
